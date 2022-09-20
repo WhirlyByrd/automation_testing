@@ -10,7 +10,6 @@ const addMovie = async (driver) => {
     await driver.sleep(2000)
 
     const movie = await driver.findElement(By.xpath('//li'))
-
     const displayed = movie.isDisplayed()
     expect(displayed).toBeTruthy()
 
@@ -27,9 +26,22 @@ const deleteMovie = async (driver) => {
     await driver.sleep(2000)
 }
 
+const checkMessage = async (driver) => {
+    
+    const message = await driver.findElement(By.id("message"))
+
+    const displayedMessage = message.isDisplayed()
+
+    expect(displayedMessage).toBeTruthy()
+}
+    
+
+
 
 module.exports = {
     addMovie,
     crossMovie,
-    deleteMovie
+    deleteMovie,
+    checkMessage
+
 }

@@ -1,7 +1,7 @@
 const {Builder, Capabilities} = require('selenium-webdriver')
 require('chromedriver')
 
-const {addMovie, crossMovie, deleteMovie} = require('../addMovie')
+const {addMovie, crossMovie, deleteMovie, checkMessage} = require('../addMovie')
 
 const driver = new Builder().withCapabilities(Capabilities.chrome()).build()
 
@@ -32,4 +32,9 @@ test('Delete a movie', async () => {
 })
 
 
+test('Check display Message', async () => {
+ 
+    await checkMessage(driver)
+    await driver.sleep(2000)
+})
 
