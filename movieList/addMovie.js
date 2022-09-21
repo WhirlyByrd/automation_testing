@@ -29,7 +29,7 @@ const deleteMovie = async (driver) => {
     await driver.findElement(By.xpath('(//button[text()="x"])[1]')).click()
     await driver.sleep(2000)
 
-    const deleted = await driver.findElement(By.xpath('//ul[text()=""]'))
+    const deleted = await driver.findElement(By.xpath('//ul[contains(text(), "")]'))
     const isDeleted = deleted.isDisplayed()
     expect(isDeleted).toBeTruthy()
 }
